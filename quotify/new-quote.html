@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>
+            Quotify Project
+        </title>
+    </head>
+
+    <body>
+        <div id='root'> 
+            </br>
+            <h1 align='center'> Quotify </h1>
+            </br>
+
+            <h3 align='center'>
+                <a href='index.html' id='getRandom'>Random Quote (API)<span id='random'></span></a> | 
+                <a href='saved-quotes.html' id='getLocalRandom'>Random Quote (Local)<span id='randomLocal'></span></a> |
+                <a href='new-quote.html' id="addQuote">Add Quote</a> | 
+                <a href='list-all-quotes.html' id="listAll">List all quotes</a>
+            </h3>
+
+            <textarea id='addNewQuote' rows='30' cols='80'></textarea>
+            </br>
+
+            <button id='saveBtn' align='center'>Save to Local</button>
+
+        </div>
+
+        <script src='https://unpkg.com/axios@0.19.0/dist/axios.js'></script>
+        <script src='./js/new-quote.js'> 
+        </script>
+
+    </body>
+</html>
