@@ -17,5 +17,4 @@ saveBtnHandle.addEventListener('click', function() {
     localQuotes.push(newQuote)
     //console.log(localQuotes)
     localStorage.setItem('quotes', JSON.stringify(localQuotes))
-    saveBtnHandle.textContent = 'Saved'
 })

@@ -7,9 +7,7 @@
 
     <body>
         <div id='root'> 
-            </br>
-            <h1 align='center'> Quotify </h1>
-            </br>
+            </br> <h1 align='center'> Quotify </h1> </br>
 
             <h3 align='center'>
                 <a href='index.html' id='getRandom'>Random Quote (API)<span id='random'></span></a> | 
@@ -18,11 +16,16 @@
                 <a href='list-all-quotes.html' id="listAll">List all quotes</a>
             </h3>
 
-            <ul id='list' style='list-style: none;' align='center'> </ul> </br> </br>
-            <table id='quoteTable' border='1'></table>
+            <ul id='list' style='list-style: none;' align='center'> 
+                <li id='li'> </li>
+            </ul> </br> </br>
+
+            <button id='getAnotherQuote' align='center'>Get Another Quote</button> </br> </br>
         </div>
 
         <script src='https://unpkg.com/axios@0.19.0/dist/axios.js'></script>
-        <script src='./js/listQuotes.js'> </script>
+        <script src='./js/saved-quotes.js'> 
+        </script>
+
     </body>
 </html>
