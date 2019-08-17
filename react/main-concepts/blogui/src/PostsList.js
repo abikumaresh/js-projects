@@ -3,7 +3,6 @@ import PostItem from './PostItem'
 import axios from 'axios';
 
 class PostsList extends React.Component {
-
     constructor() {
         super()
 
@@ -26,7 +25,6 @@ class PostsList extends React.Component {
         .catch(err => {
             console.log(err)
         })
-
     }
 
     render() {
@@ -40,11 +38,16 @@ class PostsList extends React.Component {
                             //console.log(post.title)
                             return <PostItem key={post.id} id={post.id} title={post.title} />
                         })
+
+                        
+                        
+
                     }
                 </ul>
             </div>
         )
     }
+
 
 }
 

@@ -1,0 +1,87 @@
+import React from 'react'
+import PostItem from './PostItem'
+import axios from 'axios';
+
+class PostsList extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {  
+            posts : [],
+            paginatedPosts : []
+        }
+    }
+
+    generateArrayWithPageCount(count) {
+        let beginCount = count - 10
+        var paginatedArray = this.state.posts.filter( post => {
+            return (post.id >= beginCount && post.id <= count )
+        })
+        console.log(paginatedArray)
+        this.setState ( () => {
+            return {
+                paginatedPosts : paginatedArray
+            }
+        })
+    }
+
+    componentDidMount() {
+        console.log('in component did mount')
+        axios.get('http://jsonplaceholder.typicode.com/posts')
+        .then(response => {
+            //console.log(response.data)
+            this.setState( () => {
+                return {
+                    posts : response.data
+                }
+            })
+            this.generateArrayWithPageCount(10)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    handlePageClick = (e) => {
+
+    }
+
+    generateButtons() {
+        var noOfButtons = 0
+        var buttons = ''
+        var posts = this.state.posts
+        if (posts.length % 10 !== 0)
+            noOfButtons = (posts.length / 10 ) + 1 
+        else
+            noOfButtons = posts.length / 10
+
+        console.log('Buttons = ' +noOfButtons)
+
+        for (let i=1; i<= noOfButtons; i++) {
+             buttons = buttons + `<button id=${i} value=${i} onClick={this.handlePageClick} /> `
+        }
+    }
+
+    render() {
+        console.log('in render')
+        return (
+            <div>
+                <h2> Listing all Posts </h2>
+                <ul>
+                    {
+                        // eslint-disable-next-line
+                        this.state.paginatedPosts.map( post => {
+                            if (post.id <=10) {
+                                return <PostItem key={post.id} id={post.id} title={post.title} />
+                            } 
+                        })    
+                    }
+                </ul>
+                {this.generateButtons()}
+
+            </div>
+        )
+    }
+}
+
+export default PostsList
