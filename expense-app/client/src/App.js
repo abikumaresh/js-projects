@@ -12,6 +12,8 @@ import ExpenseNew from './components/expense/ExpenseNew'
 
 import ExpenseCategoryNew from './components/expense/ExpenseCategoryNew'
 import ExpenseSearchByDate from './components/expense/ExpenseSearchByDate';
+import ReimbursementList from './components/reimbursement/ReimbursementList';
+
 //import ExpenseBulkUpload from './components/expense/ExpenseBulkUpload'
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
       <h2 align='center'> Expense App </h2> <hr/>
 
       <BrowserRouter>
-        <Link to='/dashboard'> Dashboard </Link> |
+        {/* <Link to='/dashboard'> Dashboard </Link> | */}
         <Link to='/employees'> Employees </Link> |
         <Link to='/expenses'> Expenses </Link> |
         <Link to='/reimbursements'> Reimbursements </Link> <br/>
@@ -41,6 +43,9 @@ function App() {
         <Route exact path='/expense-category' component={ExpenseCategoryNew} />
         {/* <Route exact path='/expense-upload' component={ExpenseBulkUpload} /> */}
         <Route path='/expenses/search' component={ExpenseSearchByDate} />
+
+        <Route exact path='/reimbursements' component={ReimbursementList} />
+
 
         </Switch>
 

@@ -3,6 +3,7 @@ const EmployeeController = require('../controllers/EmployeeController')
 const ExpenseController = require('../controllers/ExpenseController')
 const EmployeeGroupRoleControler = require('../controllers/EmployeeGroupRoleController')
 const ExpenseCategoryControler = require('../controllers/ExpenseCategoryController')
+const ReimbursementController = require('../controllers/ReimbursementController')
 
 const multer = require('multer')
 const csv = require('fast-csv')
@@ -43,5 +44,12 @@ router.get('/employeegroup/:id', EmployeeGroupRoleControler.showgroup)
 router.get('/expense-category', ExpenseCategoryControler.list)
 router.post('/expense-category', ExpenseCategoryControler.create)
 router.get('/expense-category/:id', ExpenseCategoryControler.show)
+
+//Reimbursement
+router.post('/reimbursements', ReimbursementController.create)
+router.get('/reimbursements', ReimbursementController.list)
+router.get('/reimbursement/:id', ReimbursementController.show)
+
+
 
 module.exports = router

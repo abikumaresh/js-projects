@@ -31,6 +31,22 @@ export default class ExpenseShow extends React.Component {
         .catch(err => console.log(err))
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const id = this.props.match.params.id
+
+        const formData = {
+            expense : id,
+        }
+
+        Axios.post('/reimbursements', formData)
+        .then (response => {
+            console.log(response.data)
+        })
+        .catch(err => console.log(err))
+
+    }
+
     render() {
         return (
             <div>
@@ -54,7 +70,9 @@ export default class ExpenseShow extends React.Component {
                         </h3> 
                         <h3> Expense created At : {this.state.createdAt} </h3><br/>
 
-                        <Link to='/expenses'> Back </Link>
+                        <input type='button' name='sumbit' value='Reimburse' onClick={this.handleSubmit} />
+
+                        <br/> <Link to='/expenses'> Back </Link>
                     </div>
                         
                 }
