@@ -20,8 +20,7 @@ class App extends React.Component {
         )
     }
 
-    render () {
-
+    renderContent() {
         if (this.state.lat && !this.state.errorMessage) {
             return <div> <SeasonDisplay lat={this.state.lat} /></div>
         }
@@ -30,6 +29,10 @@ class App extends React.Component {
         }
 
         return <Spinner message="Give permission to location app.."/>
+    }
+
+    render () {
+        return this.renderContent()
     }      
 }
 
