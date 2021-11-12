@@ -1,15 +1,13 @@
 import React, {useState} from 'react'
 
-
-
 const Accordion = ({items}) => {
-    console.log(items)
 
     const [activeIndex, setActiveIndex] = useState(null)
 
-    const onTitleClick = (index) => {
-        console.log("Title clicked -- ", index)
-        setActiveIndex(index)
+    const onTitleClick = (e) => {
+        console.log(e.target.key)
+        // console.log("Title clicked -- ", index)
+        // setActiveIndex(index)
     }
 
     const renderedAccordion = items.map( (item,index) => {
@@ -17,9 +15,9 @@ const Accordion = ({items}) => {
         const active = index === activeIndex ? 'active' : ''
 
         return (
-        <React.Fragment key={item.title}>
+        <React.Fragment key={index}>
             <div className={`${active} title`}
-                onClick={() => onTitleClick(index)}>
+                onClick={onTitleClick}>
                 <i class="dropdown icon"></i>
                 {item.title}
             </div>
