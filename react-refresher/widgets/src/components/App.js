@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 //import Accordion from './Accordion'
-import Search from './Search'
+//import Search from './Search'
+import Dropdown from './Dropdown'
 
-class App extends React.Component {
+const App = () => {
 
-    items = [
+    const items = [
         {
             title : "What is React ?",
             content : "React is a front end library"
@@ -19,13 +20,46 @@ class App extends React.Component {
         }
     ]
 
-    render() {
-        return (
-            <div className="ui container"> 
-                <Search />
-            </div>
-        )
-    }
+    const options = [
+        {
+            label : "The brightest one",
+            value: "red"
+        },
+        {   label : "The fresh one",
+            value : "green"
+        },
+        {
+            label : "The shade of sky",
+            value : "blue"
+        },
+        {
+            label : "Dirty fellow",
+            value : "yellow"
+        }
+
+    ]
+
+    const [selectedOption, setSelectedOption] = useState(options[0])
+    const [showDropdown, setShowDropdown] = useState(true)
+
+    return (
+        <div className="ui container"> 
+            <button onClick={()=> setShowDropdown(!showDropdown) }>
+                    Toggle Dropdown 
+            </button> 
+            <br/>
+                
+            {
+                showDropdown ? 
+                    <Dropdown 
+                        options={options} 
+                        selected={selectedOption}
+                        onSelectionChange={setSelectedOption} />
+                : null
+            }
+            
+        </div>     
+    ) 
 }
 
 export default App
