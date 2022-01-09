@@ -3,7 +3,9 @@ Paypal
 
 To run:
 
-paypal-integ-node> node server.js 
+From paypal-integ-node :
+npm install
+node server.js 
 
 http://localhost:3000 
 For payment, use personal sandbox account,
